@@ -1,1 +1,6 @@
 bin
+
+# Created files during getting started
+genesis.json
+jwt.txt
+rollup.json
