@@ -176,7 +176,7 @@ const deployFn: DeployFunction = async (hre) => {
   if (
     (await SystemDictatorProxy.callStatic.admin({
       from: ethers.constants.AddressZero,
-    })) !== hre.deployConfig.controller
+    })) !== ethers.utils.getAddress(hre.deployConfig.controller)
   ) {
     console.log('Transferring ownership of the SystemDictator proxy...')
 
@@ -189,7 +189,7 @@ const deployFn: DeployFunction = async (hre) => {
         return (
           (await SystemDictatorProxy.callStatic.admin({
             from: ethers.constants.AddressZero,
-          })) === hre.deployConfig.controller
+          })) === ethers.utils.getAddress(hre.deployConfig.controller)
         )
       },
       30000,
